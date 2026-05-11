@@ -26,6 +26,13 @@ npm run build
 
 The production files are generated in `dist/`.
 
+## Vercel
+
+This project includes `vercel.json` so Vercel uses the Vite output folder:
+
+- Build command: `npm run build`
+- Output directory: `dist`
+
 ## Project Structure
 
 ```text

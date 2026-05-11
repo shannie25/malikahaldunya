@@ -2,6 +2,7 @@ import React from 'react';
 import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 
 export default function Footer() {
+  const tradeName = 'MALIKAH AL DUNYA INSULATION WORKS AND CLEANING SERVICES - L.L.C - S.P.C';
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
@@ -27,16 +28,18 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">MH</span>
-              </div>
+              <img
+                src="/logo-transparent.png"
+                alt={`${tradeName} logo`}
+                className="brand-logo brand-logo-footer"
+              />
               <div>
-                <h3 className="text-white font-bold">Malika Haldunya</h3>
-                <p className="text-gray-400 text-sm">Insulation Works LLC</p>
+                <h3 className="text-white font-bold">MALIKAH AL DUNYA</h3>
+                <p className="text-gray-400 text-sm">Insulation Works & Cleaning Services</p>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Advanced Waterproofing, Insulation & Protective Coating Solutions for the UAE construction industry.
+              Waterproofing, insulation, protective coating, and cleaning services for the UAE construction industry.
             </p>
           </div>
 
@@ -104,7 +107,7 @@ export default function Footer() {
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm text-center md:text-left mb-4 md:mb-0">
-            &copy; {currentYear} Malika Haldunya Insulation Works LLC. All rights reserved.
+            &copy; {currentYear} {tradeName}. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Button from '../components/Button';
 
 export default function Hero() {
+  const tradeName = 'MALIKAH AL DUNYA INSULATION WORKS AND CLEANING SERVICES - L.L.C - S.P.C';
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -42,31 +43,31 @@ export default function Hero() {
             {/* Main Heading */}
             <div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-                Malika Haldunya
+                MALIKAH AL DUNYA
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
-                  Insulation Works
+                  Insulation Works & Cleaning Services
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-blue-300 font-semibold mb-6">
-                Advanced Waterproofing, Insulation & Protective Coating Solutions
+                Waterproofing, Insulation, Protective Coating & Cleaning Services
               </p>
               <p className="text-lg text-gray-400 leading-relaxed max-w-xl">
-                Delivering premium industrial solutions for the UAE construction industry. Trust our expertise for waterproofing, insulation, and protective coatings that last.
+                Delivering premium industrial solutions for the UAE construction industry. Trust our expertise for waterproofing, insulation, protective coatings, and cleaning services that last.
               </p>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button 
-                variant="primary" 
+              <Button
+                variant="primary"
                 size="lg"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Get Quote
                 <ArrowRight size={20} />
               </Button>
-              <Button 
-                variant="secondary" 
+              <Button
+                variant="secondary"
                 size="lg"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
@@ -92,18 +93,14 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Content - Illustration */}
+          {/* Right Content - Logo */}
           <div className="relative h-96 md:h-full hidden md:flex items-center justify-center">
             <div className="absolute w-80 h-80 bg-gradient-to-br from-blue-600/30 to-slate-600/30 rounded-full blur-2xl" />
-            <div className="relative z-10">
-              <div className="w-64 h-64 bg-gradient-to-br from-blue-600 to-slate-700 rounded-2xl shadow-2xl flex items-center justify-center transform hover:scale-105 transition-transform duration-300">
-                <div className="text-center">
-                  <div className="text-7xl font-bold text-white/20 mb-4">✓</div>
-                  <p className="text-white font-bold">Premium Quality</p>
-                  <p className="text-gray-300 text-sm">Industrial Solutions</p>
-                </div>
-              </div>
-            </div>
+            <img
+              src="/logo-transparent.png"
+              alt={`${tradeName} logo`}
+              className="hero-logo transform hover:scale-105 transition-transform duration-300"
+            />
           </div>
         </div>
       </div>

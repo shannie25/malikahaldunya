@@ -37,7 +37,7 @@ export default function About() {
             {/* Description */}
             <div className="space-y-4 text-gray-400 leading-relaxed">
               <p>
-                Malika Haldunya Insulation Works LLC is a premier provider of advanced waterproofing, insulation, and protective coating solutions in the United Arab Emirates. With over a decade of experience in the construction and industrial sectors, we have established ourselves as a trusted name in delivering innovative solutions that protect and enhance infrastructure.
+                MALIKAH AL DUNYA INSULATION WORKS AND CLEANING SERVICES - L.L.C - S.P.C is a premier provider of advanced waterproofing, insulation, protective coating, and cleaning services in the United Arab Emirates. With over a decade of experience in the construction and industrial sectors, we have established ourselves as a trusted name in delivering innovative solutions that protect and enhance infrastructure.
               </p>
               <p>
                 Our commitment to excellence, combined with cutting-edge technology and a team of highly skilled professionals, allows us to deliver projects that exceed industry standards and client expectations. We serve a diverse portfolio of clients including construction companies, property developers, and industrial facilities.

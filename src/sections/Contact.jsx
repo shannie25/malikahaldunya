@@ -92,11 +92,11 @@ export default function Contact() {
             <div className="space-y-4 pt-4 border-t border-slate-700">
               <h4 className="text-lg font-bold text-white">Other Options</h4>
               <a
-                href="https://wa.me/971XXXXXXXXX"
+                href="https://wa.me/971555267546"
                 className="flex items-center gap-3 p-4 bg-green-600/20 hover:bg-green-600/30 border border-green-500/30 text-green-300 hover:text-green-200 rounded-lg transition-all duration-300"
               >
                 <MessageCircle size={20} />
-                <span className="font-semibold">Contact via WhatsApp</span>
+                <span className="font-semibold">WhatsApp: +971 555267546</span>
               </a>
               <div className="flex items-center gap-3 p-4 bg-slate-800 border border-slate-700 text-gray-300 rounded-lg">
                 <Clock size={20} />

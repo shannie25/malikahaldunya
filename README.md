@@ -1,6 +1,6 @@
-# Malika Haldunya Insulation Works LLC
+# MALIKAH AL DUNYA INSULATION WORKS AND CLEANING SERVICES - L.L.C - S.P.C
 
-Client website for Malika Haldunya Insulation Works LLC, built as a separate Vite React project.
+Client website for MALIKAH AL DUNYA INSULATION WORKS AND CLEANING SERVICES - L.L.C - S.P.C, built as a separate Vite React project.
 
 ## Tech Stack
 
@@ -68,7 +68,7 @@ src/
 
 ## Client Information
 
-- Company: Malika Haldunya Insulation Works LLC
+- Company: MALIKAH AL DUNYA INSULATION WORKS AND CLEANING SERVICES - L.L.C - S.P.C
 - Location: Abu Dhabi, UAE
 - Email: `info@malikahaldunya.ae`
 - Domain: `https://malikahaldunya.ae`

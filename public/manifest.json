@@ -1,12 +1,12 @@
 {
-  "short_name": "Malika Haldunya",
-  "name": "Malika Haldunya Insulation Works LLC",
-  "description": "Advanced Waterproofing, Insulation & Protective Coating Solutions",
+  "short_name": "Malikah Al Dunya",
+  "name": "MALIKAH AL DUNYA INSULATION WORKS AND CLEANING SERVICES - L.L.C - S.P.C",
+  "description": "Waterproofing, insulation, protective coating, and cleaning services",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "logo-transparent.png",
+      "sizes": "614x614",
+      "type": "image/png"
     },
     {
       "src": "logo192.png",

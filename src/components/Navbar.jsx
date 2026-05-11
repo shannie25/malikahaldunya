@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
 
 export default function Navbar() {
+  const tradeName = 'MALIKAH AL DUNYA INSULATION WORKS AND CLEANING SERVICES - L.L.C - S.P.C';
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -35,12 +36,14 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">MH</span>
-            </div>
+            <img
+              src="/logo-transparent.png"
+              alt={`${tradeName} logo`}
+              className="brand-logo brand-logo-nav"
+            />
             <div className="hidden sm:flex flex-col">
-              <span className="text-white font-bold text-sm">Malika Haldunya</span>
-              <span className="text-gray-400 text-xs">Insulation Works</span>
+              <span className="text-white font-bold text-sm">MALIKAH AL DUNYA</span>
+              <span className="text-gray-400 text-xs">Insulation Works & Cleaning Services</span>
             </div>
           </div>
 

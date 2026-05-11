@@ -78,7 +78,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="animate-fade-in-up"
+              className="service-card-wrap animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <ServiceCard {...service} />

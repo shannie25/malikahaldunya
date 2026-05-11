@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Malika Haldunya",
+  "name": "Malika Haldunya Insulation Works LLC",
+  "description": "Advanced Waterproofing, Insulation & Protective Coating Solutions",
   "icons": [
     {
       "src": "favicon.ico",
@@ -19,7 +20,9 @@
     }
   ],
   "start_url": ".",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "orientation": "portrait-primary",
+  "theme_color": "#001f3f",
+  "background_color": "#0f1419"
 }

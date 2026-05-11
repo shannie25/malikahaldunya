@@ -38,6 +38,7 @@ textarea {
 button {
   border: 0;
   cursor: pointer;
+  background: transparent;
 }
 
 ::-webkit-scrollbar {

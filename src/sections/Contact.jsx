@@ -7,7 +7,7 @@ export default function Contact() {
     {
       icon: Phone,
       label: 'Phone',
-      value: '+971 4 XXXX XXXX',
+      value: '+971 55 526 7546',
       action: 'tel:+971',
     },
     {

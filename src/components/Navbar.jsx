@@ -3,6 +3,7 @@ import { Menu, X, Phone } from 'lucide-react';
 
 export default function Navbar() {
   const tradeName = 'MALIKAH AL DUNYA INSULATION WORKS AND CLEANING SERVICES - L.L.C - S.P.C';
+  const phoneLink = 'tel:+971555267546';
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -63,7 +64,7 @@ export default function Navbar() {
           {/* CTA Button and Mobile Menu */}
           <div className="flex items-center space-x-4">
             <a
-              href="tel:+971XXXXXXXXX"
+              href={phoneLink}
               className="hidden sm:flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
             >
               <Phone size={16} />

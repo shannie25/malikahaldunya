@@ -3,39 +3,36 @@ import { Mail, Phone, MapPin, MessageCircle, Clock } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
 
 export default function Contact() {
+  const phoneDisplay = '+971 55 526 7546';
+  const phoneLink = 'tel:+971555267546';
+  const whatsappLink = 'https://wa.me/971555267546';
+  const emailAddresses = [
+    'malikah_al_dunya@gmail.com',
+    'mahalahkarimah@gmail.com',
+  ];
+  const gmailLink = (email) => `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
+
   const contactMethods = [
     {
       icon: Phone,
       label: 'Phone',
-      value: '+971 55 526 7546',
-      action: 'tel:+971',
+      value: phoneDisplay,
+      action: phoneLink,
     },
     {
       icon: Mail,
-      label: 'Email (Info)',
-      value: 'info@malikahaldunya.ae',
-      action: 'mailto:info@malikahaldunya.ae',
+      label: 'Gmail',
+      value: emailAddresses[0],
+      action: gmailLink(emailAddresses[0]),
+      isExternal: true,
     },
     {
       icon: Mail,
-      label: 'Email (Sales)',
-      value: 'sales@malikahaldunya.ae',
-      action: 'mailto:sales@malikahaldunya.ae',
+      label: 'Gmail',
+      value: emailAddresses[1],
+      action: gmailLink(emailAddresses[1]),
+      isExternal: true,
     },
-    {
-      icon: Mail,
-      label: 'Email (Technical)',
-      value: 'technical@malikahaldunya.ae',
-      action: 'mailto:technical@malikahaldunya.ae',
-    },
-  ];
-
-  const departments = [
-    { name: 'Sales', email: 'sales@malikahaldunya.ae' },
-    { name: 'Technical Support', email: 'technical@malikahaldunya.ae' },
-    { name: 'Engineering', email: 'engineering@malikahaldunya.ae' },
-    { name: 'Operations', email: 'operation@malikahaldunya.ae' },
-    { name: 'Accounts', email: 'accounts@malikahaldunya.ae' },
   ];
 
   return (
@@ -69,6 +66,8 @@ export default function Contact() {
                   <a
                     key={index}
                     href={method.action}
+                    target={method.isExternal ? '_blank' : undefined}
+                    rel={method.isExternal ? 'noopener noreferrer' : undefined}
                     className="group flex items-start gap-4 p-6 bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl border border-slate-700 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl"
                   >
                     <div className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600/40 transition-colors">
@@ -92,11 +91,13 @@ export default function Contact() {
             <div className="space-y-4 pt-4 border-t border-slate-700">
               <h4 className="text-lg font-bold text-white">Other Options</h4>
               <a
-                href="https://wa.me/971555267546"
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 p-4 bg-green-600/20 hover:bg-green-600/30 border border-green-500/30 text-green-300 hover:text-green-200 rounded-lg transition-all duration-300"
               >
                 <MessageCircle size={20} />
-                <span className="font-semibold">WhatsApp: +971 555267546</span>
+                <span className="font-semibold">WhatsApp: {phoneDisplay}</span>
               </a>
               <div className="flex items-center gap-3 p-4 bg-slate-800 border border-slate-700 text-gray-300 rounded-lg">
                 <Clock size={20} />
@@ -104,22 +105,6 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Department Directory */}
-            <div className="space-y-4 pt-4 border-t border-slate-700">
-              <h4 className="text-lg font-bold text-white">Department Directory</h4>
-              <div className="space-y-2">
-                {departments.map((dept, index) => (
-                  <a
-                    key={index}
-                    href={`mailto:${dept.email}`}
-                    className="flex justify-between items-center p-3 bg-slate-800/50 hover:bg-slate-800 rounded-lg transition-colors border border-slate-700"
-                  >
-                    <span className="text-gray-300 font-medium">{dept.name}</span>
-                    <span className="text-blue-400 text-sm">{dept.email}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Contact Form */}

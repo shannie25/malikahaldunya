@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 import Button from './Button';
 
-export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    message: '',
-  });
+const initialFormData = {
+  name: '',
+  email: '',
+  phone: '',
+  company: '',
+  message: '',
+};
 
-  const [submitted, setSubmitted] = useState(false);
+export default function ContactForm() {
+  const [formData, setFormData] = useState(initialFormData);
+  const [status, setStatus] = useState({ type: '', message: '' });
+  const [isSending, setIsSending] = useState(false);
+
+  const isSuccess = status.type === 'success';
+  const isError = status.type === 'error';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,22 +25,49 @@ export default function ContactForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', company: '', message: '' });
-    }, 3000);
+    setIsSending(true);
+    setStatus({ type: '', message: '' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Unable to send your message right now.');
+      }
+
+      setStatus({
+        type: 'success',
+        message: "Thank you! Your message has been sent.",
+      });
+      setFormData(initialFormData);
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: error.message || 'Unable to send your message right now.',
+      });
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {submitted && (
-        <div className="bg-green-500/20 border border-green-500 text-green-300 px-4 py-3 rounded-lg text-center">
-          Thank you! We'll get back to you soon.
+      {(isSuccess || isError) && (
+        <div
+          className={`${isSuccess ? 'bg-green-500/20 border-green-500 text-green-300' : 'form-status-error'} border px-4 py-3 rounded-lg text-center`}
+          role="status"
+          aria-live="polite"
+        >
+          {status.message}
         </div>
       )}
 
@@ -47,6 +79,7 @@ export default function ContactForm() {
           value={formData.name}
           onChange={handleChange}
           required
+          disabled={isSending}
           className="w-full bg-slate-800 border border-slate-700 text-white placeholder-gray-500 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors"
         />
         <input
@@ -56,6 +89,7 @@ export default function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           required
+          disabled={isSending}
           className="w-full bg-slate-800 border border-slate-700 text-white placeholder-gray-500 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors"
         />
       </div>
@@ -67,6 +101,7 @@ export default function ContactForm() {
           placeholder="Phone Number"
           value={formData.phone}
           onChange={handleChange}
+          disabled={isSending}
           className="w-full bg-slate-800 border border-slate-700 text-white placeholder-gray-500 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors"
         />
         <input
@@ -75,6 +110,7 @@ export default function ContactForm() {
           placeholder="Company (Optional)"
           value={formData.company}
           onChange={handleChange}
+          disabled={isSending}
           className="w-full bg-slate-800 border border-slate-700 text-white placeholder-gray-500 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors"
         />
       </div>
@@ -85,12 +121,13 @@ export default function ContactForm() {
         value={formData.message}
         onChange={handleChange}
         required
+        disabled={isSending}
         rows="5"
         className="w-full bg-slate-800 border border-slate-700 text-white placeholder-gray-500 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors resize-none"
       />
 
-      <Button type="submit" variant="primary" size="lg" className="w-full">
-        Send Message
+      <Button type="submit" variant="primary" size="lg" className="w-full" disabled={isSending}>
+        {isSending ? 'Sending...' : 'Send Message'}
       </Button>
     </form>
   );

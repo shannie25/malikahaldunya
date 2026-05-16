@@ -4,6 +4,13 @@ import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 export default function Footer() {
   const tradeName = 'MALIKAH AL DUNYA INSULATION WORKS AND CLEANING SERVICES - L.L.C - S.P.C';
   const currentYear = new Date().getFullYear();
+  const phoneDisplay = '+971 55 526 7546';
+  const phoneLink = 'tel:+971555267546';
+  const emailAddresses = [
+    'malikah_al_dunya@gmail.com',
+    'mahalahkarimah@gmail.com',
+  ];
+  const gmailLink = (email) => `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
 
   const quickLinks = [
     { name: 'Home', href: '#home' },
@@ -13,12 +20,8 @@ export default function Footer() {
   ];
 
   const emails = [
-    { label: 'Info', email: 'info@malikahaldunya.ae' },
-    { label: 'Sales', email: 'sales@malikahaldunya.ae' },
-    { label: 'Technical', email: 'technical@malikahaldunya.ae' },
-    { label: 'Engineering', email: 'engineering@malikahaldunya.ae' },
-    { label: 'Accounts', email: 'accounts@malikahaldunya.ae' },
-    { label: 'Operations', email: 'operation@malikahaldunya.ae' },
+    { label: 'Primary', email: emailAddresses[0] },
+    { label: 'Alternate', email: emailAddresses[1] },
   ];
 
   return (
@@ -67,12 +70,30 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <Phone size={18} className="text-blue-400 flex-shrink-0 mt-1" />
-                <span className="text-gray-400 text-sm">+971 XXXX XXXX</span>
+                <a href={phoneLink} className="text-gray-400 hover:text-white text-sm transition-colors">
+                  {phoneDisplay}
+                </a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail size={18} className="text-blue-400 flex-shrink-0 mt-1" />
-                <a href="mailto:info@malikahaldunya.ae" className="text-gray-400 hover:text-white text-sm transition-colors">
-                  info@malikahaldunya.ae
+                <a
+                  href={gmailLink(emailAddresses[0])}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white text-sm transition-colors"
+                >
+                  {emailAddresses[0]}
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <Mail size={18} className="text-blue-400 flex-shrink-0 mt-1" />
+                <a
+                  href={gmailLink(emailAddresses[1])}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white text-sm transition-colors"
+                >
+                  {emailAddresses[1]}
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -82,14 +103,16 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Email Directories */}
+          {/* Gmail Contacts */}
           <div>
-            <h4 className="text-white font-bold mb-4">Email Directory</h4>
+            <h4 className="text-white font-bold mb-4">Gmail Contacts</h4>
             <ul className="space-y-2">
               {emails.map((item) => (
                 <li key={item.email}>
                   <a
-                    href={`mailto:${item.email}`}
+                    href={gmailLink(item.email)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-gray-400 hover:text-blue-400 text-xs transition-colors block truncate"
                     title={item.email}
                   >
